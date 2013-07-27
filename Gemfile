@@ -14,6 +14,7 @@ gem 'pry-debugger'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'meta_request'
+gem 'annotate'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,6 +43,7 @@ gem 'zurb-foundation', '~> 4.0.0'
  gem 'unicorn'
  gem 'carrierwave'
  gem 'sorcery'
+ gem 'stripe'
 
 # Deploy with Capistrano
 # gem 'capistrano'
