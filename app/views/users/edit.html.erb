@@ -1,6 +1,12 @@
-<h1>Editing user</h1>
 
+<% if @user.subscription != nil %>
+  <p>You are a Premium User with unlimited private messaging!</p>
+<% else %>
+  Become a Premium User to have unlimited private messaging!  <%= link_to 'Subscribe Here', new_subscription_path %>
+<% end %>
 <%= render 'form' %>
+
+
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
