@@ -1,5 +1,8 @@
 Alrightvalentine::Application.routes.draw do
 
+  resources :photos
+
+
   resources :messages
 
 match 'converse/:id' => 'messages#converse', :as => :converse

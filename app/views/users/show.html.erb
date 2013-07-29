@@ -4,7 +4,28 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
+<div id="paintings">
 
+  <% @user.photos.each do |photo| %>
+    <div class="photo">
+      <%= image_tag photo.image_url.to_s %>
+      <div class="actions">
+        <%= link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<%= form_for @photo, :html => {:multipart => true} do |f| %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+  <div class="actions">
+    <%= f.submit "Upload Photo", class: "button" %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(session[:user_id])
+    @photo = Photo.new
 
     respond_to do |format|
       format.html # show.html.erb

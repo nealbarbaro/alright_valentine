@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728234445) do
+ActiveRecord::Schema.define(:version => 20130729003023) do
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(:version => 20130728234445) do
     t.integer  "sender_id"
     t.integer  "receiver_id"
   end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "image"
+    t.string   "name"
+  end
+
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "subscriptions", :force => true do |t|
     t.string   "stripe_card_token"
