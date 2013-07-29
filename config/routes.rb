@@ -1,10 +1,9 @@
 Alrightvalentine::Application.routes.draw do
 
-  resources :photos
+resources :photos
+resources :messages
 
-
-  resources :messages
-
+match 'refresh/:id' => 'messages#converse'
 match 'converse/:id' => 'messages#converse', :as => :converse
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout

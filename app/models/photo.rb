@@ -15,4 +15,6 @@ class Photo < ActiveRecord::Base
   attr_accessible :user_id, :image, :name
 
   mount_uploader :image, ImageUploader
+
+  validates_presence_of :image, :user_id
 end

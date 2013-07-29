@@ -40,10 +40,10 @@ class MessagesController < ApplicationController
 
     @all_messages = @sent_messages + @received_messages
     @all_messages = @all_messages.sort_by {|a| a.created_at}
-    # respond_to do |format|
-    #   format.html # show.html.erb
-    #   format.json { render json: @message }
-    # end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js
+    end
   end
 
   # GET /messages/new

@@ -1,11 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Profile for <%= current_user.username %> </h2>
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
+  <b>Gender:</b>
+  <%= @user.gender %>
 </p>
-<div id="paintings">
+<p>
+  <b>Looking for:</b>
+  <%= @user.preferedgender %>
+</p>
+<p>
+  <b>Age:</b>
+  <%= @user.age %>
+</p>
+<p>
+  <b>About Me:</b>
+  <%= @user.aboutme %>
+</p>
+<p>
+  <b>Photos:</b>
+  <%= @user.aboutme %>
+</p>
 
+<div id="paintings">
   <% @user.photos.each do |photo| %>
     <div class="photo">
       <%= image_tag photo.image_url.to_s %>
@@ -17,15 +34,18 @@
   <div class="clear"></div>
 </div>
 
-<%= form_for @photo, :html => {:multipart => true} do |f| %>
-  <div class="field">
-    <%= f.file_field :image %>
-  </div>
-  <%= f.hidden_field :user_id, value: current_user.id  %>
-  <div class="actions">
-    <%= f.submit "Upload Photo", class: "button" %>
-  </div>
+<% if @user.id == current_user.id %>
+  <%= form_for @photo, :html => {:multipart => true} do |f| %>
+    <div class="field">
+      <%= f.file_field :image %>
+    </div>
+    <%= f.hidden_field :user_id, value: current_user.id  %>
+    <div class="actions">
+      <%= f.submit "Upload Photo", class: "button" %>
+    </div>
+  <% end %>
+  <%= link_to 'Edit Profile', edit_user_path(@user), class: "button" %>
 <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<%= link_to 'Back', users_path, class: "button" %>

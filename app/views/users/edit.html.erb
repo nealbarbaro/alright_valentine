@@ -1,9 +1,15 @@
 <% if @user.subscription != nil %>
   <p>You are a Premium User with unlimited private messaging!</p>
 <% else %>
-  Become a Premium User to have unlimited private messaging!  <%= link_to 'Subscribe Here', new_subscription_path %>
+  <p>Become a Premium User to have unlimited private messaging!  <%= link_to 'Subscribe Here', new_subscription_path %> </p>
 <% end %>
-<%= render 'form' %>
+
+
+<div class="row">
+  <div class="large-6 columns">
+    <%= render 'form' %>
+  </div>
+</div>
 
 
 

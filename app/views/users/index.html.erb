@@ -1,7 +1,24 @@
 <h1>Listing users</h1>
 
+<table>
+  <tr>
+    <th></th>
+    <th>Username</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Interested In</th>
+  </tr>
 
-
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<% @users.each do |user| %>
+  <tr>
+    <td class="thumbnail"><%= image_tag user.photos[0].image_url.to_s %></td>
+    <td><%= user.username %></td>
+    <td><%= user.age %></td>
+    <td><%= user.gender %></td>
+    <td><%= user.preferedgender %></td>
+    <td><%= link_to "View Profile", user_path(user.id) %></td>
+    <% if current_user.id != user.id %>
+      <td><%= link_to "Message", converse_path(user.id) %>
+    <% end %>
+  </tr>
+<% end %>

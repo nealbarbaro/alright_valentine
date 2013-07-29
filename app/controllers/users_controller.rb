@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @users = User.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
     @photo = Photo.new
 
     respond_to do |format|

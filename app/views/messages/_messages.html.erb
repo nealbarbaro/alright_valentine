@@ -7,7 +7,7 @@
   <% @all_messages.each do |message| %>
     <tr>
       <td><%= message.created_at %></td>
-      <td><%= message.sender.email %></td>
+      <td><%= message.sender.username %></td>
       <td><%= message.content %></td>
     </tr>
   <% end %>

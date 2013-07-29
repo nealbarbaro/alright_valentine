@@ -8,6 +8,11 @@
 #  salt             :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  username         :string(255)
+#  aboutme          :text
+#  gender           :string(255)
+#  preferedgender   :string(255)
+#  age              :integer
 #
 
 require 'test_helper'

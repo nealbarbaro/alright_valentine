@@ -21,6 +21,22 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age, :placeholder => "Your age..." %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender, :placeholder => "Your gender..." %>
+  </div>
+  <div class="field">
+    <%= f.label :preferedgedern %>
+    <%= f.text_field :preferedgender, :placeholder => "The gender you are looking for..." %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutme %>
+    <%= f.text_area :aboutme, :placeholder => "Tell us about yourself..." %>
+  </div>
   <div class="actions">
     <%= f.submit "Save", :class => 'button' %>
   </div>

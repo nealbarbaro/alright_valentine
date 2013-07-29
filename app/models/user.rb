@@ -8,11 +8,16 @@
 #  salt             :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  username         :string(255)
+#  aboutme          :text
+#  gender           :string(255)
+#  preferedgender   :string(255)
+#  age              :integer
 #
 
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :username, :aboutme, :gender, :preferedgender, :age
 
   has_one :subscription
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id', :dependent => :destroy
