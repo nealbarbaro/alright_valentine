@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Sent</th>
+    <th>Sender</td>
+    <th>Message</th>
+  </tr>
+  <% @all_messages.each do |message| %>
+    <tr>
+      <td><%= message.created_at %></td>
+      <td><%= message.sender.email %></td>
+      <td><%= message.content %></td>
+    </tr>
+  <% end %>
+</table>

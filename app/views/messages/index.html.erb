@@ -1,0 +1,74 @@
+<h1>Your Conversations</h1>
+
+<h3>Inbox</h3>
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @received_messages.each do |message| %>
+  <tr>
+    <td><%= message.receiver.email %></td>
+    <td><%= message.content %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+
+<h1>Your Messages</h1>
+
+<h3>Inbox</h3>
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @received_messages.each do |message| %>
+  <tr>
+    <td><%= message.receiver.email %></td>
+    <td><%= message.content %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<h3>Outbox</h3>
+<table>
+  <tr>
+    <th>Receiver</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sent_messages.each do |message| %>
+  <tr>
+    <td><%= link_to (message.receiver.email), converse_path(message.receiver.id)  %></td>
+    <td><%= message.content %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Message', new_message_path %>

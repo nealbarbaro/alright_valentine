@@ -1,5 +1,8 @@
 Alrightvalentine::Application.routes.draw do
 
+  resources :messages
+
+match 'converse/:id' => 'messages#converse', :as => :converse
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout
 
